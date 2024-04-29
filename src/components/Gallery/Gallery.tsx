@@ -1,4 +1,4 @@
-import { Fade, Tabs } from "@mui/material";
+import { Box, Fade, Tabs } from "@mui/material";
 import { GalleryCarousel } from "components/GalleryCarousel/GalleryCarousel";
 import { Tab } from "components/Tab/Tab";
 import { GalleryMultiRow } from "components/GalleryMultiRow/GalleryMultiRow";
@@ -38,7 +38,7 @@ export function Gallery({
   );
 
   return (
-    <div>
+    <Box>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -65,10 +65,10 @@ export function Gallery({
         ))}
       </Tabs>
 
-      <div className="relative" style={{ height }}>
+      <Box className="relative" style={{ height }}>
         {tabs.map((tab) => (
           <Fade in={tab.value === value} key={tab.value} timeout={1000}>
-            <div className="w-full absolute top-0" ref={imagesRef}>
+            <Box className="w-full absolute top-0" ref={imagesRef}>
               {multiRows ? (
                 <GalleryMultiRow
                   images={tab.images}
@@ -80,10 +80,10 @@ export function Gallery({
                   onImageClick={onImageClick}
                 />
               )}
-            </div>
+            </Box>
           </Fade>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

@@ -3,6 +3,7 @@ import { EVENTER_TELEGRAM_FULL } from "shared/constants/contacts";
 import { useTheme } from "hooks/useTheme.ts";
 import aboutBg from "assets/images/about-bg.png";
 import logo from "assets/images/icons/eventer-orange.svg";
+import { Box } from "@mui/material";
 
 export function AboutHeaderSection() {
   const { themeColor, telegramIcon } = useTheme();
@@ -18,7 +19,7 @@ export function AboutHeaderSection() {
         ваш крутой краткий лозунг
       </h1>
 
-      <div className="flex gap-4 mt-8 relative z-10 flex-wrap">
+      <Box className="flex gap-4 mt-8 relative z-10 flex-wrap">
         <Button color={themeColor}>Заказать звонок</Button>
         <Button
           color={themeColor}
@@ -27,11 +28,11 @@ export function AboutHeaderSection() {
         >
           Telegram <img className="ml-3" src={telegramIcon} alt="telegram" />
         </Button>
-      </div>
-      <div
+      </Box>
+      <Box
         className="absolute left-0 top-0 bg-bottom bg-contain bg-no-repeat w-full h-full"
         style={backgroundImage}
-      ></div>
+      ></Box>
     </section>
   );
 }

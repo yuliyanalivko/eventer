@@ -8,11 +8,14 @@ import { useCallback } from "react";
 export function ConceptsSection() {
   const navigate = useNavigate();
 
-  const onImageClick = useCallback((image: ImageConfig) => {
-    navigate(
-      `/${PathConstants.CORPORATE_EVENTS}/${PathConstants.CONCEPT}?name=${image.name}`
-    );
-  }, []);
+  const onImageClick = useCallback(
+    (image: ImageConfig) => {
+      navigate(
+        `/${PathConstants.CORPORATE_EVENTS}/${PathConstants.CONCEPT}?name=${image.name}`
+      );
+    },
+    [navigate]
+  );
 
   return (
     <section className="py-section-y-sm pr-0 pl-section-x-xs sm:pl-section-x-sm md:pl-section-x-md 2xl:pl-section-x-lg bg-grey-500">

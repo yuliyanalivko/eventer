@@ -1,4 +1,4 @@
-import { Tabs } from "@mui/material";
+import { Box, Tabs } from "@mui/material";
 import { Tab } from "components/Tab/Tab";
 import { useCallback, useState } from "react";
 import { useTheme } from "hooks/useTheme.ts";
@@ -29,7 +29,7 @@ export function ServiceInfoSection() {
 
   return (
     <section className="flex px-0 bg-grey-400">
-      <div className="py-section-y-md px-section-x-xs sm:px-section-x-sm md:plx-section-x-md 2xl:px-section-x-lg">
+      <Box className="py-section-y-md px-section-x-xs sm:px-section-x-sm md:plx-section-x-md 2xl:px-section-x-lg">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -40,8 +40,8 @@ export function ServiceInfoSection() {
           <Tab value={TabValues.BTL} label="BTL" />
         </Tabs>
 
-        <div className="flex">
-          <div
+        <Box className="flex">
+          <Box
             role="tabpanel"
             className="mr-[-100%] w-full"
             style={{
@@ -63,9 +63,9 @@ export function ServiceInfoSection() {
             >
               Узнать подробнее
             </a>
-          </div>
+          </Box>
 
-          <div
+          <Box
             role="tabpanel"
             className="mr-[-100%] w-full"
             style={{
@@ -81,14 +81,14 @@ export function ServiceInfoSection() {
             <a href={`/${PathConstants.BTL}`} className="underline">
               Узнать подробнее
             </a>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
 
-      <div
+      <Box
         className="bg-cover bg-center grow"
         style={{ backgroundImage: `url("${bgImage}")` }}
-      ></div>
+      ></Box>
     </section>
   );
 }

@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+
 type GalleryCarouselProps = {
   title?: string;
   caption?: string;
@@ -12,22 +14,22 @@ export function GalleryImage({
   height = 380,
 }: GalleryCarouselProps) {
   return (
-    <div className="flex flex-col" style={{ height }}>
-      <div
+    <Box className="flex flex-col" style={{ height }}>
+      <Box
         className="bg-cover bg-center relative flex-1 w-full cursor-pointer"
         style={{
           backgroundImage: `url('${imageUrl}')`,
         }}
-      ></div>
+      ></Box>
 
       {title ? (
-        <div className="mt-5">
-          <div className="caption w-full font-roboto-flex font-medium text-xbase">
+        <Box className="mt-5">
+          <Box className="caption w-full font-roboto-flex font-medium text-xbase">
             {title}
-          </div>
-          <div className="caption w-full text-sm text-grey-300">{caption}</div>
-        </div>
+          </Box>
+          <Box className="caption w-full text-sm text-grey-300">{caption}</Box>
+        </Box>
       ) : null}
-    </div>
+    </Box>
   );
 }

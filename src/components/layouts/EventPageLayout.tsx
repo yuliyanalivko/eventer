@@ -7,7 +7,7 @@ import { ReviewsSection } from "sections/ReviewsSection/ReviewsSection";
 import { useSearchParams } from "react-router-dom";
 import { events } from "shared/data/events";
 
-export default function EventPage() {
+export default function EventPageLayout() {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
 

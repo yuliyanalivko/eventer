@@ -1,8 +1,8 @@
-import { MutableRefObject, createContext, useState } from "react";
+import { RefObject, createContext, useState } from "react";
 
 export interface CommonContextValue {
-  contactFormRef: MutableRefObject<HTMLElement> | null;
-  updateContactFormRef: (ref: MutableRefObject<HTMLElement>) => void;
+  contactFormRef: RefObject<HTMLElement> | null;
+  updateContactFormRef: (ref: RefObject<HTMLElement> | null) => void;
   openContactForDialog: boolean;
   updateOpenContactForDialog: (open: boolean) => void;
 }
@@ -17,12 +17,12 @@ export default function CommonContextProvider({
   children,
 }: CommonContextProviderProps) {
   const [contactFormRef, setContactFormRef] =
-    useState<MutableRefObject<HTMLElement> | null>(null);
+    useState<RefObject<HTMLElement> | null>(null);
 
   const [openContactForDialog, setOpenContactForDialog] =
     useState<boolean>(false);
 
-  const updateContactFormRef = (ref: MutableRefObject<HTMLElement>) =>
+  const updateContactFormRef = (ref: RefObject<HTMLElement> | null) =>
     setContactFormRef(ref);
 
   const updateOpenContactForDialog = (open: boolean) =>

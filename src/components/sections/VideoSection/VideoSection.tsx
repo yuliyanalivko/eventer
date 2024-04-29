@@ -1,6 +1,7 @@
 import bgImage from "assets/images/video-cover.jpeg";
 import playIcon from "assets/images/icons/play.svg";
 import { useCallback } from "react";
+import { Box } from "@mui/material";
 
 export function VideoSection() {
   const handleOnClick = useCallback(() => {
@@ -18,9 +19,9 @@ export function VideoSection() {
         alt="play"
         onClick={handleOnClick}
       />
-      <div
+      <Box
         className={`absolute left-0 h-full w-full top-0 bg-grey-400/80`}
-      ></div>
+      ></Box>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import {
+  Box,
   Dialog,
   DialogContent,
   DialogTitle,
@@ -23,11 +24,11 @@ export function ContactFormDialog() {
         className="bg-grey-400"
       >
         <DialogTitle>
-          <div className="flex justify-between items-center mb-3">
-            <div className="flex space-x-2.5 justify-center">
+          <Box className="flex justify-between items-center mb-3">
+            <Box className="flex space-x-2.5 justify-center">
               <img src={commentIcon} alt="comment" />
               <h2 className="h2">Давайте обсудим</h2>
-            </div>
+            </Box>
             <IconButton
               aria-label="close"
               color="primary"
@@ -35,7 +36,7 @@ export function ContactFormDialog() {
             >
               <CloseIcon />
             </IconButton>
-          </div>
+          </Box>
         </DialogTitle>
         <DialogContent>
           <ContactForm />

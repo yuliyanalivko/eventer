@@ -10,97 +10,86 @@ import {
   EVENTER_PHONE,
   EVENTER_TELEGRAM_FULL,
 } from "../../shared/constants/contacts";
-import PathConstants from "../../routes/path-constants";
+import { Box, Link } from "@mui/material";
+import links from "./links";
 
 export function Footer() {
   return (
     <footer className="bg-grey-700 box-border flex flex-col py-8 px-16 relative bottom-0">
-      <div className="pb-6">
-        <a href="/">
+      <Box className="pb-6">
+        <Link href="/">
           <img src={logo} alt="logo" />
-        </a>
-      </div>
+        </Link>
+      </Box>
 
       <Divider className="bg-white opacity-20 w-full h-0.25" />
 
-      <div className="flex flex-col space-y-10 pt-8 justify-between items-start xl:flex-row xl:space-y-0">
-        <div className="text-grey-300 text-xs opacity-60">
-          <div className="mb-3">© 2022 Eventer.by</div>
-          <div>Все права защищены</div>
-        </div>
+      <Box className="flex flex-col space-y-10 pt-8 justify-between items-start xl:flex-row xl:space-y-0">
+        <Box className="text-grey-300 text-xs opacity-60">
+          <Box className="mb-3">© 2022 Eventer.by</Box>
+          <Box>Все права защищены</Box>
+        </Box>
 
-        <div className="flex flex-wrap gap-6 h-5 pb-6">
-          <a
-            className="text-grey-300 text-xs font-medium"
-            href={`/${PathConstants.CORPORATE_EVENTS}`}
-          >
-            Корпоративы
-          </a>
-          <Divider className="bg-white opacity-20" orientation="vertical" />
-          <a
-            className="text-grey-300 text-xs font-medium"
-            href={`/${PathConstants.BTL}`}
-          >
-            BTL
-          </a>
-          <Divider className="bg-white opacity-20" orientation="vertical" />
-          <a
-            className="text-grey-300 text-xs font-medium"
-            href={`/${PathConstants.PORTFOLIO}`}
-          >
-            Портфолио
-          </a>
-          <Divider className="bg-white opacity-20" orientation="vertical" />
-          <a
-            className="text-grey-300 text-xs font-medium"
-            href={`/${PathConstants.CONTACTS}`}
-          >
-            Контакты
-          </a>
-        </div>
+        <Box className="flex flex-wrap gap-6 h-5 pb-6">
+          {links.map(({ href, label }, index) => (
+            <Box key={label} sx={{ display: "flex", gap: 2 }}>
+              <Link className="text-grey-300 text-xs font-medium" href={href}>
+                {label}
+              </Link>
+              {index < links.length - 1 ? (
+                <Divider
+                  className="bg-white opacity-20"
+                  orientation="vertical"
+                />
+              ) : null}
+            </Box>
+          ))}
+        </Box>
 
-        <div className="flex flex-col space-y-6 sm:flex-row sm:space-x-44 sm:space-y-0">
-          <div>
-            <div className="flex space-x-2">
+        <Box className="flex flex-col space-y-6 sm:flex-row sm:space-x-44 sm:space-y-0">
+          <Box>
+            <Box className="flex space-x-2">
               <img src={phone} alt="phone" />
-              <a className="text-grey-300" href={`tel:${EVENTER_PHONE}`}>
+              <Link className="text-grey-300" href={`tel:${EVENTER_PHONE}`}>
                 {EVENTER_PHONE}
-              </a>
-            </div>
+              </Link>
+            </Box>
 
-            <div className="flex space-x-2">
+            <Box className="flex space-x-2">
               <img src={email} alt="email" />
-              <a className="text-grey-300" href={`mailto:${EVENTER_EMAIL}`}>
+              <Link className="text-grey-300" href={`mailto:${EVENTER_EMAIL}`}>
                 {EVENTER_EMAIL}
-              </a>
-            </div>
-          </div>
+              </Link>
+            </Box>
+          </Box>
 
-          <div>
-            <div className="flex space-x-2">
+          <Box>
+            <Box className="flex space-x-2">
               <img src={telegram} alt="telegram" />
-              <a
+              <Link
                 className="text-grey-300"
                 href={EVENTER_TELEGRAM_FULL}
                 target="_blank"
+                rel="noopener"
               >
                 t.me/eventer
-              </a>
-            </div>
+              </Link>
+            </Box>
 
-            <div className="flex space-x-2">
+            <Box className="flex space-x-2">
               <img src={instagram} alt="instagram" />
-              <a
+              <Link
                 className="text-grey-300"
                 href={EVENTER_INSTAGRAM}
                 target="_blank"
+                rel="noopener"
               >
                 eventer_by
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+              </Link>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </footer>
   );
 }

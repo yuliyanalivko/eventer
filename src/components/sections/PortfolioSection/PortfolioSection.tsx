@@ -1,4 +1,4 @@
-import { Fade, Tabs } from "@mui/material";
+import { Box, Fade, Tabs } from "@mui/material";
 import { Tab } from "components/Tab/Tab";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { PortfolioTabConfig } from "shared/types/portfolio-tab-config.interface";
@@ -22,30 +22,33 @@ export function PortfolioSection({ tabs }: PortfolioSectionProps) {
     setValue(newValue);
   };
   const [height, setHeight] = useState<number>(0);
-  const galleryRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLBoxElement>(null);
 
   useLayoutEffect(() => {
     if (galleryRef?.current) setHeight(galleryRef.current.clientHeight);
-  }, [galleryRef.current]);
+  }, []);
 
   const navigate = useNavigate();
 
-  const onImageClick = useCallback((image: ImageConfig) => {
-    const navigateTo =
-      value === "btl"
-        ? PathConstants.BTL
-        : value === "corporateEvents"
-        ? PathConstants.CORPORATE_EVENTS
-        : null;
-    if (navigateTo && image.name)
-      navigate(`/${navigateTo}/${PathConstants.EVENT}?name=${image.name}`);
-  }, []);
+  const onImageClick = useCallback(
+    (image: ImageConfig) => {
+      const navigateTo =
+        value === "btl"
+          ? PathConstants.BTL
+          : value === "corporateEvents"
+          ? PathConstants.CORPORATE_EVENTS
+          : null;
+      if (navigateTo && image.name)
+        navigate(`/${navigateTo}/${PathConstants.EVENT}?name=${image.name}`);
+    },
+    [navigate, value]
+  );
 
   return (
     <section className="pb-section-y-md pt-section-y-sm">
       <h1 className="h1 mb-8">портфолио</h1>
 
-      <div>
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -69,10 +72,10 @@ export function PortfolioSection({ tabs }: PortfolioSectionProps) {
           ))}
         </Tabs>
 
-        <div className="relative" style={{ height }}>
+        <Box className="relative" style={{ height }}>
           {tabs.map((tab) => (
             <Fade in={tab.value === value} key={tab.value} timeout={1000}>
-              <div
+              <Box
                 role="tabpanel"
                 className="w-full absolute top-0"
                 ref={galleryRef}
@@ -82,11 +85,11 @@ export function PortfolioSection({ tabs }: PortfolioSectionProps) {
                   multiRows={true}
                   onImageClick={onImageClick}
                 />
-              </div>
+              </Box>
             </Fade>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </section>
   );
 }

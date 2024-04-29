@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./GalleryCarousel.scss";
 import { ImageConfig } from "shared/types/image-config.interface";
 import { useSlidesToShow } from "hooks/useSlidesToShow";
+import { Box } from "@mui/material";
 
 type GalleryCarouselProps = {
   images: ImageConfig[];
@@ -31,12 +32,10 @@ export function GalleryCarousel({
   };
 
   const handleBeforeChange = useCallback(() => {
-    console.log("handleBeforeChange");
     setDragging(true);
   }, [setDragging]);
 
   const handleAfterChange = useCallback(() => {
-    console.log("handleAfterChange");
     setDragging(false);
   }, [setDragging]);
 
@@ -47,26 +46,26 @@ export function GalleryCarousel({
         onImageClick(image);
       }
     },
-    [dragging]
+    [dragging, onImageClick]
   );
 
   return (
-    <div className="slider-container relative gallery">
+    <Box className="slider-container relative gallery">
       <Slider
         {...settings}
         beforeChange={handleBeforeChange}
         afterChange={handleAfterChange}
       >
         {images.map((image, index) => (
-          <div
+          <Box
             key={index}
             className="pr-9"
             onClickCapture={(e) => handleImageClick(image, e)}
           >
             <GalleryImage {...image} height={height} />
-          </div>
+          </Box>
         ))}
       </Slider>
-    </div>
+    </Box>
   );
 }

@@ -3,7 +3,7 @@ import { TextField as MuiTextField } from "@mui/material";
 import { TextFieldProps } from "@mui/material";
 import { StyledEngineProvider } from "@mui/material/styles";
 
-export function TextField({ children, ...props }: TextFieldProps) {
+export function TextField(props: TextFieldProps) {
   return (
     <StyledEngineProvider injectFirst>
       <MuiTextField {...props}></MuiTextField>

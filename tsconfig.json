@@ -22,17 +22,6 @@
 
     "types": ["node"],
     "baseUrl" : "./src",
-    "paths": {
-      "@/*": ["./src/*", "./dist/*", ""],
-      "pages/*": ["src/pages/*"],
-      "components/*": ["src/components/*"],
-      "sections/*": ["src/components/sections/*"],
-      "assets/*": ["src/assets/*"],
-      "public/*": ["public/*"],
-      "routes/*": ["src/routes/*"],
-      "hooks/*": ["src/hooks/*"],
-      "contexts/*": ["src/contexts/*"],
-    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

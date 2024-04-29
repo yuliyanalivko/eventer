@@ -34,15 +34,6 @@ export const ContactForm = () => {
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
   const [snackbarText, setSnackbarText] = useState<string>("");
 
-  const handlePhoneChange = useCallback((newValue: string) => {
-    setPhone(newValue);
-    formik.setFieldValue("phone", newValue);
-
-    matchIsValidTel(newValue, {
-      onlyCountries: ["BY"],
-    });
-  }, []);
-
   useEffect(() => emailjs.init("bj0yGqKBM8ltQ2LVI"), []);
 
   const onSubmit = useCallback(
@@ -70,13 +61,22 @@ export const ContactForm = () => {
     []
   );
 
-  const handleCloseSnackbar = useCallback(() => setOpenSnackbar(false), []);
-
   const formik = useFormik<FormValues>({
     validationSchema,
     initialValues,
     onSubmit,
   });
+
+  const handlePhoneChange = (newValue: string) => {
+    setPhone(newValue);
+    formik.setFieldValue("phone", newValue);
+
+    matchIsValidTel(newValue, {
+      onlyCountries: ["BY"],
+    });
+  };
+
+  const handleCloseSnackbar = useCallback(() => setOpenSnackbar(false), []);
 
   return (
     <>

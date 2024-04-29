@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { team } from "shared/data/team.ts";
 import { useSlidesToShow } from "hooks/useSlidesToShow";
+import { Box } from "@mui/material";
 
 export function TeamSection() {
   const slidesToShow = useSlidesToShow();
@@ -20,34 +21,34 @@ export function TeamSection() {
     <section className="py-section-y-sm pr-0 pl-section-x-xs sm:pl-section-x-sm md:pl-section-x-md 2xl:pl-section-x-lg bg-grey-500">
       <h2 className="h2 mb-10">Концепции</h2>
 
-      <div className="slider-container gallery relative ">
+      <Box className="slider-container gallery relative ">
         <Slider {...settings}>
           {team.map((member, index) => (
-            <div key={index} className="pr-20">
-              <div
+            <Box key={index} className="pr-20">
+              <Box
                 className="bg-cover bg-center relative h-[500px] w-full cursor-pointer relative"
                 style={{
                   backgroundImage: `url('${member.imageUrl}')`,
                 }}
               >
-                <div className="pt-20 px-4 bg-gradient-to-b from-transparent to-grey-400 absolute bottom-0 w-full">
-                  <div className="w-full font-roboto-flex font-semibold text-md uppercase">
+                <Box className="pt-20 px-4 bg-gradient-to-b from-transparent to-grey-400 absolute bottom-0 w-full">
+                  <Box className="w-full font-roboto-flex font-semibold text-md uppercase">
                     {member.name}
-                  </div>
-                  <div className="w-full text-grey-300">{member.position}</div>
-                </div>
-              </div>
+                  </Box>
+                  <Box className="w-full text-grey-300">{member.position}</Box>
+                </Box>
+              </Box>
 
-              <div className="pt-6 pb-8 px-4 bg-grey-400">
-                <div className="w-full text-xs text-grey-300">
+              <Box className="pt-6 pb-8 px-4 bg-grey-400">
+                <Box className="w-full text-xs text-grey-300">
                   {member.quote}
-                </div>
-              </div>
-            </div>
+                </Box>
+              </Box>
+            </Box>
           ))}
         </Slider>
-        <div className="w-full absolute top-0"></div>
-      </div>
+        <Box className="w-full absolute top-0"></Box>
+      </Box>
     </section>
   );
 }

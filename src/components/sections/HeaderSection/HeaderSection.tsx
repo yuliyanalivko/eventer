@@ -2,6 +2,7 @@ import { Button } from "components/Button/Button";
 import { EVENTER_TELEGRAM_FULL } from "shared/constants/contacts";
 import { useTheme } from "hooks/useTheme.ts";
 import { useShowContactForm } from "hooks/useShowContactForm";
+import { Box } from "@mui/material";
 
 type HeaderSectionProps = {
   title: string;
@@ -28,12 +29,12 @@ export function HeaderSection({
       className="h-[900px] py-section-y-lg max-h-full bg-center bg-cover box-border flex items-center relative"
       style={backgroundImage}
     >
-      <div className="relative z-10">
+      <Box className="relative z-10">
         <h1 className="h1 max-w-3xl uppercase">{title}</h1>
-        <p className="uppercase mt-6 text-grey-100 text-xbase font-roboto-flex">
+        <Box className="uppercase mt-6 text-grey-100 text-xbase font-roboto-flex">
           {text}
-        </p>
-        <div className="flex flex-wrap gap-4 mt-8">
+        </Box>
+        <Box className="flex flex-wrap gap-4 mt-8">
           <Button color={themeColor} onClick={showContactForm}>
             Заказать звонок
           </Button>
@@ -44,9 +45,9 @@ export function HeaderSection({
           >
             Telegram <img className="ml-3" src={telegramIcon} alt="telegram" />
           </Button>
-        </div>
-      </div>
-      <div className={`absolute left-0 h-full w-full top-0 ${style}`}></div>
+        </Box>
+      </Box>
+      <Box className={`absolute left-0 h-full w-full top-0 ${style}`}></Box>
     </section>
   );
 }

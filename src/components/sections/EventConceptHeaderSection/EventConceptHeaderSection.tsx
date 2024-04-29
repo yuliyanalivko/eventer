@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useTheme } from "hooks/useTheme.ts";
 
 type EventHeaderSectionProps = {
@@ -29,22 +30,22 @@ export function EventConceptHeaderSection({
         backgroundImage: `url("${bgImage}")`,
       }}
     >
-      <div className="max-w-[636px] relative z-10">
+      <Box className="max-w-[636px] relative z-10">
         <h1 className="h1 max-w-3xl uppercase">{title}</h1>
-        <div className="font-roboto-flex text-xbase font-medium uppercase mt-4 mb-10 empty:hidden">
+        <Box className="font-roboto-flex text-xbase font-medium uppercase mt-4 mb-10 empty:hidden">
           {subtitle}
-        </div>
+        </Box>
 
         {text && (
-          <div
+          <Box
             className={`font-roboto-flex text-xbase font-semibold uppercase mb-3 ${fontColor}`}
           >
             Запрос:
-          </div>
+          </Box>
         )}
         <p>{text}</p>
-      </div>
-      <div className="absolute left-0 h-full w-full top-0 bg-grey-500 opacity-85"></div>
+      </Box>
+      <Box className="absolute left-0 h-full w-full top-0 bg-grey-500 opacity-85"></Box>
     </section>
   );
 }

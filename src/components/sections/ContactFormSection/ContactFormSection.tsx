@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { ContactForm } from "components/ContactForm/ContactForm";
 import { CommonContextValue } from "contexts/CommonContext";
 import { CommonContext } from "contexts/CommonContext";
@@ -23,7 +24,7 @@ export function ContactFormSection({
     return () => {
       updateContactFormRef(null);
     };
-  }, [ref]);
+  }, [ref, updateContactFormRef]);
 
   return (
     <section
@@ -31,24 +32,24 @@ export function ContactFormSection({
       style={{ backgroundImage: `url(${bgImage})` }}
       ref={ref}
     >
-      <div className="max-w-[470px] relative z-10">
-        <div className="flex space-x-2.5 mb-3">
+      <Box className="max-w-[470px] relative z-10">
+        <Box className="flex space-x-2.5 mb-3">
           <img src={commentIcon} alt="comment" />
           <h2 className="h2">Давайте обсудим</h2>
-        </div>
-        <div>
-          <p className="text-grey-300 mb-12">
+        </Box>
+        <Box>
+          <Box className="text-grey-300 mb-12">
             Свяжитесь с нами удобным для вас способом, вы везде ответим
             одинаково быстро!
-          </p>
+          </Box>
           <ContactForm />
-        </div>
-      </div>
-      <div
+        </Box>
+      </Box>
+      <Box
         className={`absolute left-0 h-full w-full top-0 ${
           bgImage ? "bg-grey-600/80" : ""
         }`}
-      ></div>
+      ></Box>
     </section>
   );
 }

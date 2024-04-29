@@ -17,6 +17,7 @@ export default defineConfig({
       hooks: `${path.resolve(__dirname, "./src/hooks")}`,
       contexts: `${path.resolve(__dirname, "./src/contexts")}`,
       routes: `${path.resolve(__dirname, "./src/routes")}`,
+      themes: `${path.resolve(__dirname, "./src/themes")}`,
     },
   },
 });

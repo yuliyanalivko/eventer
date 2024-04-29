@@ -10,6 +10,7 @@ import "./ClientSection.scss";
 import oodji from "assets/images/oodji.png";
 import { useTheme } from "hooks/useTheme.ts";
 import { useShowContactForm } from "hooks/useShowContactForm";
+import { Box } from "@mui/material";
 
 export function ClientSection() {
   const { themeColor } = useTheme();
@@ -35,8 +36,8 @@ export function ClientSection() {
         backgroundImage: `linear-gradient(to right, ${vars.grey700}, rgba(0, 0, 0, 0)), url("${mainBg}")`,
       }}
     >
-      <div className="h-full w-full py-section-y-md">
-        <div className="h-full max-w-[406px] box-border">
+      <Box className="h-full w-full py-section-y-md">
+        <Box className="h-full max-w-[406px] box-border">
           <h2 className="h2 mb-2.5 max-w-[800px] mb-3">Они выбрали нас</h2>
 
           <p className="text-grey-100 tracking-wide text-base mb-8">
@@ -44,7 +45,7 @@ export function ClientSection() {
             нам доверяет более 45 организаций постоянных клиентов
           </p>
 
-          <div className="flex flex-wrap gap-4 items-start">
+          <Box className="flex flex-wrap gap-4 items-start">
             <Button color="primary" onClick={showContactForm}>
               Заказать звонок
             </Button>
@@ -55,21 +56,21 @@ export function ClientSection() {
             >
               Telegram <img className="ml-2.5" src={telegram} alt="telegram" />
             </Button>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
 
-      <div className="h-20 w-full px-16 py-4 bg-grey-700">
+      <Box className="h-20 w-full px-16 py-4 bg-grey-700">
         <Slider {...settings} className="clients">
           {clients.map((client, index) => (
-            <div key={index} style={{ width: 142 }}>
-              <div className="h-10 w-full bg-grey-600 flex items-center justify-center">
+            <Box key={index} style={{ width: 142 }}>
+              <Box className="h-10 w-full bg-grey-600 flex items-center justify-center">
                 <img src={client} alt="client" className="h-6 opacity-35" />
-              </div>
-            </div>
+              </Box>
+            </Box>
           ))}
         </Slider>
-      </div>
+      </Box>
     </section>
   );
 }

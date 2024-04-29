@@ -1,10 +1,10 @@
 import { HomePage } from "pages/HomePage";
 import { BTLPage } from "pages/BTLPage";
 import { CorporateEventsPage } from "pages/CorporateEventsPage";
-import EventPage from "pages/EventPage";
+import EventPage from "components/layouts/EventPageLayout";
 
 import PathConstants from "./path-constants";
-import { RouteObject } from "react-router-dom";
+import { Navigate, RouteObject } from "react-router-dom";
 import ConceptPage from "pages/ConceptPage";
 import { AboutPage } from "pages/AboutPage";
 import { ContactPage } from "pages/ContactPage";
@@ -71,6 +71,10 @@ const routes: RouteObject[] = [
         element: <PortfolioPage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Navigate replace to={PathConstants.HOME} />,
   },
 ];
 

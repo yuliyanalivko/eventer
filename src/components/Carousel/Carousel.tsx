@@ -5,15 +5,11 @@ import "./Carousel.scss";
 import { useTheme } from "hooks/useTheme";
 import vars from "shared/styles/_variables.module.scss";
 import { useState, useEffect, useCallback } from "react";
+import { Box } from "@mui/material";
+import { ImageConfig } from "shared/types/image-config.interface";
 
 type CarouselProps = {
-  images: [
-    {
-      imageUrl: string;
-      title?: string;
-      caption?: string;
-    }
-  ];
+  images: ImageConfig[];
   showCaption?: boolean;
 };
 
@@ -22,7 +18,7 @@ export function Carousel({ images, showCaption = true }: CarouselProps) {
 
   const getImageWidth = useCallback(
     () => (window.innerWidth >= +vars.lgScreen.replace("px", "") ? 800 : 400),
-    [window.innerWidth]
+    []
   );
   const [imageWidth, setImageWidth] = useState<number>(getImageWidth());
 
@@ -33,7 +29,7 @@ export function Carousel({ images, showCaption = true }: CarouselProps) {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [getImageWidth]);
 
   const settings = {
     className: "center",
@@ -49,26 +45,26 @@ export function Carousel({ images, showCaption = true }: CarouselProps) {
   return (
     <Slider {...settings} className={`${themeColor} carousel`}>
       {images.map((image, index) => (
-        <div
+        <Box
           key={index}
           className="h-[580px] relative"
           style={{ width: imageWidth }}
         >
-          <div
+          <Box
             className={`bg-cover bg-center h-full w-full relative`}
             style={{ backgroundImage: `url(${image.imageUrl})` }}
           />
           {showCaption ? (
-            <div className="caption w-full absolute bottom-0 before:content-[''] before:absolute before:bg-grey-700 before:opacity-50 before:w-full before:h-full">
-              <div className="relative py-3 px-6 space-x-2">
+            <Box className="caption w-full absolute bottom-0 before:content-[''] before:absolute before:bg-grey-700 before:opacity-50 before:w-full before:h-full">
+              <Box className="relative py-3 px-6 space-x-2">
                 <span className="text-grey-100 uppercase font-roboto-flex text-[20px] font-semibold">
                   {image.title}
                 </span>
                 <span className="text-grey-300 text-base">{image.caption}</span>
-              </div>
-            </div>
+              </Box>
+            </Box>
           ) : null}
-        </div>
+        </Box>
       ))}
     </Slider>
   );
