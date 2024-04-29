@@ -1,0 +1,34 @@
+@import "shared/styles/_variables.module";
+
+.carousel {
+  .slick-dots button:before {
+    color: $grey-200;
+    opacity: 1;
+  }
+
+  &.primary {
+    .slick-dots li.slick-active button:before {
+      color: $orange-200;
+    }
+  }
+
+  &.secondary {
+    .slick-dots li.slick-active button:before {
+      color: $gold-200;
+    }
+  }
+
+  &.blue {
+    .slick-dots li.slick-active button:before {
+      color: $blue-200;
+    }
+  }
+
+  .slick-slide:not(.slick-active) {
+    opacity: 0.15;
+
+    .caption {
+      display: none;
+    }
+  }
+}

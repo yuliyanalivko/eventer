@@ -1,0 +1,26 @@
+@import "../../shared/styles/_variables.module.scss";
+
+.button.MuiButtonBase-root {
+  border-radius: 2px;
+  font-size: $font-size-small;
+  font-family: "Roboto Flex";
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 19px;
+  font-weight: 500;
+  min-width: max-content;
+
+  &:not(.MuiTelInput-IconButton) {
+    padding: 15px 30px;
+  }
+
+  &.MuiButton-outlined {
+    background-color: $white;
+  }
+
+  &.Mui-disabled {
+    opacity: 0.5;
+    color: inherit;
+    background-color: inherit;
+  }
+}

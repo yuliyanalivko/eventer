@@ -1,0 +1,19 @@
+@import "shared/styles/_variables.module.scss";
+
+.MuiButtonBase-root.MuiTab-root {
+  color: $grey-100;
+  text-transform: uppercase;
+  font-family: "Roboto Flex";
+  font-weight: 500;
+  font-size: $font-size-base;
+  padding: 12px 0;
+  margin-right: 32px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:not(.Mui-selected) {
+    color: $grey-300;
+  }
+}

@@ -1,0 +1,16 @@
+@import "shared/styles/_variables.module";
+
+.clients {
+  height: 100%;
+
+  .slick-list {
+    height: 100%;
+
+    .slick-track {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      height: 100%;
+    }
+  }
+}

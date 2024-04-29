@@ -1,0 +1,35 @@
+@import "./_variables.module.scss";
+
+.MuiInputBase-root {
+  border-radius: 0;
+  height: 47px;
+
+  &.MuiOutlinedInput-root {
+    &:not(.Mui-error, .Mui-focused) {
+      fieldset {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &:not(.Mui-focused):hover {
+        fieldset {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  .MuiInputBase-input {
+    color: $grey-100;
+    font-family: "Manrope";
+    font-size: $font-size-x-small;
+  }
+}
+
+.MuiTextField-root {
+  :not(.Mui-focused).MuiInputLabel-root {
+    color: $grey-200;
+    opacity: 0.6;
+    font-family: "Manrope";
+    font-size: $font-size-x-small;
+  }
+}

@@ -1,0 +1,78 @@
+@import "./_variables.module.scss";
+
+* {
+  color: $grey-100;
+}
+
+.h1 {
+  font-family: "Roboto Flex";
+  font-size: $font-size-large;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 52px;
+  color: $grey-100;
+  margin: 0;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $md-screen) {
+    font-size: $font-size-x-large;
+    line-height: 60px;
+  }
+}
+
+.h2 {
+  font-family: "Roboto Flex";
+  font-size: $font-size-medium;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 44px;
+  color: $grey-100;
+  margin: 0;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $md-screen) {
+    font-size: $font-size-large;
+    line-height: 52px;
+  }
+}
+
+.h3 {
+  font-family: "Roboto Flex";
+  font-size: $font-size-x-base;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 28px;
+  color: $grey-100;
+  margin: 0;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $md-screen) {
+    font-size: $font-size-medium;
+    line-height: 24px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding-left: $space-x-xs;
+  padding-right: $space-x-xs;
+  box-sizing: border-box;
+
+  @media screen and (min-width: $sm-screen) {
+    padding-left: $space-x-sm;
+    padding-right: $space-x-sm;
+  }
+
+  @media screen and (min-width: $md-screen) {
+    padding-left: $space-x-md;
+    padding-right: $space-x-md;
+  }
+
+  @media screen and (min-width: $xxl-screen) {
+    padding-left: $space-x-lg;
+    padding-right: $space-x-lg;
+  }
+}

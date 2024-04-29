@@ -1,0 +1,47 @@
+@import "shared/styles/_variables.module";
+
+.gallery {
+  .slick-arrow {
+    &:is(.slick-disabled) {
+      display: none !important;
+    }
+    &:not(.slick-disabled) {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.slick-next {
+      right: 0;
+      width: $space-x-sm;
+      height: 100%;
+      background: linear-gradient(to left, $grey-700, rgba(0, 0, 0, 0));
+
+      @media screen and (min-width: $md-screen) {
+        width: $space-x-md;
+      }
+
+      @media screen and (min-width: $xxl-screen) {
+        width: $space-x-lg;
+      }
+    }
+
+    &:before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      display: block;
+      position: relative;
+      bottom: 25px;
+    }
+
+    &.slick-prev:before {
+      background: url("src/assets/images/icons/arrow-left.svg") no-repeat;
+    }
+
+    &.slick-next:before {
+      background: url("src/assets/images/icons/arrow-right.svg") no-repeat;
+      opacity: 1;
+    }
+  }
+}

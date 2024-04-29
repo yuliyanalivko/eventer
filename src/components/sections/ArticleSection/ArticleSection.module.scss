@@ -1,0 +1,7 @@
+@import "shared/styles/_variables.module";
+
+@media (max-width: $xl-screen) {
+  .column {
+    flex-direction: column !important;
+  }
+}
