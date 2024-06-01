@@ -2,13 +2,14 @@ import "./Button.scss";
 import { Button as MuiButton } from "@mui/material";
 import { ButtonProps } from "@mui/material/Button";
 import { StyledEngineProvider } from "@mui/material/styles";
-import { ThemeColors } from "shared/types/theme-color.enum";
 
-export type ExtendedButtonProps = Omit<ButtonProps, "color"> & {
-  color: ThemeColors;
-};
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    blue: true;
+  }
+}
 
-export function Button({ children, color, ...props }: ExtendedButtonProps) {
+export function Button({ children, color, ...props }: ButtonProps) {
   return (
     <StyledEngineProvider injectFirst>
       <MuiButton

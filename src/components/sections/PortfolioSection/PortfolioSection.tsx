@@ -22,11 +22,11 @@ export function PortfolioSection({ tabs }: PortfolioSectionProps) {
     setValue(newValue);
   };
   const [height, setHeight] = useState<number>(0);
-  const galleryRef = useRef<HTMLBoxElement>(null);
+  const galleryRef = useRef<HTMLBRElement>(null);
 
   useLayoutEffect(() => {
     if (galleryRef?.current) setHeight(galleryRef.current.clientHeight);
-  }, []);
+  }, [galleryRef.current]);
 
   const navigate = useNavigate();
 

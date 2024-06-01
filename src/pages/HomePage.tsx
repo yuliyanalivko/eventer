@@ -8,7 +8,6 @@ import { CarouselSection } from "sections/CarouselSection/CarouselSection";
 import { ClientSection } from "sections/ClientSection/ClientSection";
 import { FAQSection } from "sections/FAQSection/FAQSection";
 import bgImage from "assets/images/concert-1.png";
-import { useEffect, useRef } from "react";
 
 export function HomePage() {
   const review = {
